@@ -1,5 +1,4 @@
 const container = document.querySelector(".container");
-const grid = document.querySelector(".grid");
 const slider = document.querySelector("input");
 const size = document.querySelector(".size");
 
@@ -20,8 +19,24 @@ slider.addEventListener("input", () => {
 			column.className = "column";
 			row.appendChild(column);
 			column.addEventListener("mouseover", () => {
-				column.style.backgroundColor = "black";
+				column.style.backgroundColor = randomColor();
 			});
 		}
 	}
 });
+
+function randomColor() {
+	const r = Math.round(Math.random() * 256);
+	const g = Math.round(Math.random() * 256);
+	const b = Math.round(Math.random() * 256);
+	const rgb = `rgb(${r}, ${g}, ${b})`;
+   return rgb;
+}
+
+// color
+// rainbow
+// eraser
+// slider
+// size
+// toggle grid lines
+// clear
