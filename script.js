@@ -21,6 +21,29 @@ choices.forEach(choice => {
 	});
 });
 
+window.addEventListener("DOMContentLoaded", () => {
+	for (let i = 0; i < slider.value; i++) {
+		const row = document.createElement("div");
+		row.className = "row";
+		container.appendChild(row);
+
+		for (let j = 0; j < slider.value; j++) {
+			const column = document.createElement("div");
+			column.className = "column";
+			row.appendChild(column);
+			column.addEventListener("mouseover", () => {
+				if (eraser.classList.contains("current")) {
+					column.style.backgroundColor = "black";
+				} else if (color.classList.contains("current")) {
+					column.style.backgroundColor = colorPicker.value;
+				} else if (rainbow.classList.contains("current")) {
+					column.style.backgroundColor = randomColor();
+				}
+			});
+		}
+	}
+});
+
 slider.addEventListener("input", () => {
 	while (container.firstChild) {
 		container.removeChild(container.firstChild);
@@ -57,7 +80,6 @@ function randomColor() {
 	const rgb = `rgb(${r}, ${g}, ${b})`;
 	return rgb;
 }
-
 
 buttons.forEach(button => {
 	button.addEventListener("click", () => {
