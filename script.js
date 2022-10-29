@@ -9,6 +9,17 @@ const eraser = document.querySelector(".eraser");
 const clear = document.querySelector(".clear");
 const toggleGrid = document.querySelector(".toggle-grid");
 
+const choices = [color, rainbow, eraser];
+choices.forEach(choice => {
+   choice.addEventListener("click", () => {
+		choices.forEach(choice => {
+			choice.classList.remove("current");
+		});
+		choice.classList.add("current");
+	});
+})
+
+
 slider.addEventListener("input", () => {
 	while (container.firstChild) {
 		container.removeChild(container.firstChild);
@@ -27,11 +38,11 @@ slider.addEventListener("input", () => {
 			row.appendChild(column);
 			column.addEventListener("mouseover", () => {
 
-				if (eraser.classList.contains("active")) {
+				if (eraser.classList.contains("current")) {
 					column.style.backgroundColor = "black";
-				} else if (color.classList.contains("active")) {
+				} else if (color.classList.contains("current")) {
 					column.style.backgroundColor = colorPicker.value;
-				} else if (rainbow.classList.contains("active")) {
+				} else if (rainbow.classList.contains("current")) {
                column.style.backgroundColor = randomColor();
             }
 			});
@@ -56,7 +67,9 @@ buttons.forEach(button => {
 	});
 });
 
-color.addEventListener("click")
+color.addEventListener("click", () => {
+
+})
 
 clear.addEventListener("click", () => {
 	const columns = document.querySelectorAll(".column");
