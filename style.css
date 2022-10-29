@@ -80,7 +80,6 @@ aside button:active {
    flex-direction: column;
    height: var(--height-lg);
    min-width: var(--width-lg);
-   border: 1px solid black;
 }
 
 .container.border {
@@ -99,13 +98,26 @@ aside button:active {
    border-bottom: 1px solid var(--color-white);
 }
 
+.column.hide-column-border {
+   border-width: 0;
+}
+
 .column:first-child {
    border-left: 1px solid var(--color-white);
+}
+
+.column:last-child {
+   border-right: 1px solid var(--color-white);
 }
 
 .row:first-child .column {
    border-top: 1px solid var(--color-white);
 }
+
+.row:last-child .column {
+   border-bottom: 1px solid var(--color-white);
+}
+
 
 .grid:hover {
    background-color: var(--color-white);
