@@ -80,6 +80,7 @@ aside button:active {
    flex-direction: column;
    height: var(--height-lg);
    min-width: var(--width-lg);
+   border: 1px solid black;
 }
 
 .container.border {
