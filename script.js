@@ -60,8 +60,13 @@ clear.addEventListener("click", () => {
 
 toggleGrid.addEventListener("click", () => {
    const columns = document.querySelectorAll(".column");
-   container.classList.add("border");
+   container.classList.toggle("border");
 	columns.forEach(column => {
 		column.style.borderWidth = 0;
 	});
+})
+
+slider.addEventListener("mousedown",() => {
+   if (toggleGrid.classList.contains("border"));
+   container.classList.remove("border");
 })
