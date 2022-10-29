@@ -5,6 +5,7 @@ const buttons = document.querySelectorAll("button");
 const color = document.querySelector(".color");
 const eraser = document.querySelector(".eraser");
 const clear = document.querySelector(".clear");
+const toggleGrid = document.querySelector(".toggle-grid");
 
 slider.addEventListener("input", () => {
 	while (container.firstChild) {
@@ -56,3 +57,11 @@ clear.addEventListener("click", () => {
 		column.style.backgroundColor = "black";
 	});
 });
+
+toggleGrid.addEventListener("click", () => {
+   const columns = document.querySelectorAll(".column");
+   container.classList.add("border");
+	columns.forEach(column => {
+		column.style.borderWidth = 0;
+	});
+})

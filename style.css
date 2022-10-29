@@ -82,6 +82,10 @@ aside button:active {
    min-width: var(--width-lg);
 }
 
+.container.border {
+   border: 1px solid white;
+}
+
 .row {
    display: flex;
    flex: 1;
