@@ -7,7 +7,7 @@ slider.addEventListener("input", () => {
 		container.removeChild(container.firstChild);
 	}
 
-	size.innerText = `Grid size: ${slider.value} × ${slider.value}`;
+	size.innerText = `${slider.value} × ${slider.value}`;
 
 	for (let i = 0; i < slider.value; i++) {
 		const row = document.createElement("div");

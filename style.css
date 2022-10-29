@@ -46,12 +46,20 @@ aside div {
 .slider {
    display: flex;
    flex-direction: column;
+   margin-top: 1rem;
    gap: .5rem;
 }
 
-aside div:hover {
+aside .hover:hover {
    cursor: pointer;
    background-color: grey;
+}
+
+aside {
+   display: flex;
+   flex-direction: column;
+   margin-top: 1rem;
+   gap: .5rem;
 }
 
 .container {
