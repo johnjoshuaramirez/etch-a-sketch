@@ -1,0 +1,35 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.container {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   height: 600px;
+   width: 600px;
+   border: 1px solid black;
+}
+
+.row {
+   display: flex;
+   flex: 1;
+   border: 1px solid black;
+}
+
+.column {
+   flex: 1;
+   border: 1px solid black;
+}
+
+.grid:hover {
+   background-color: black;
+}
