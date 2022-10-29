@@ -1,6 +1,10 @@
 const container = document.querySelector(".container");
 const slider = document.querySelector("input");
 const size = document.querySelector(".size");
+const buttons = document.querySelectorAll("button");
+const color = document.querySelector(".color");
+const eraser = document.querySelector(".eraser");
+const clear = document.querySelector(".clear");
 
 slider.addEventListener("input", () => {
 	while (container.firstChild) {
@@ -19,7 +23,11 @@ slider.addEventListener("input", () => {
 			column.className = "column";
 			row.appendChild(column);
 			column.addEventListener("mouseover", () => {
-				column.style.backgroundColor = randomColor();
+				if (eraser.classList.contains("active")) {
+					column.style.backgroundColor = "black";
+				} else {
+					column.style.backgroundColor = randomColor();
+				}
 			});
 		}
 	}
@@ -30,15 +38,21 @@ function randomColor() {
 	const g = Math.round(Math.random() * 256);
 	const b = Math.round(Math.random() * 256);
 	const rgb = `rgb(${r}, ${g}, ${b})`;
-   return rgb;
+	return rgb;
 }
 
-// color
-// rainbow
-// background color
-// eraser
-// slider
-// clear
-// size
-// toggle grid lines
+buttons.forEach(button => {
+	button.addEventListener("click", () => {
+		buttons.forEach(button => {
+			button.classList.remove("active");
+		});
+		button.classList.add("active");
+	});
+});
 
+clear.addEventListener("click", () => {
+	const columns = document.querySelectorAll(".column");
+	columns.forEach(column => {
+		column.style.backgroundColor = "black";
+	});
+});

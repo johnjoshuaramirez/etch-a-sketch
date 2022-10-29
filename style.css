@@ -31,35 +31,48 @@ aside {
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   /* gap: 1rem; */
 }
 
-aside div {
+aside button {
    border: 1px solid black;
    width: 10rem;
    height: 2.5rem;
    display: flex;
    justify-content: center;
    align-items: center;
+   background-color: black;
+}
+
+aside button.active {
+   outline: none;
+   background-color: grey;
+}
+
+.not-active {
+   background-color: black;
+}
+
+aside button:hover {
+   cursor: pointer;
+   background-color: grey;
 }
 
 .slider {
    display: flex;
    flex-direction: column;
+   align-items: center;
    margin-top: 1rem;
    gap: .5rem;
+   width: 10rem;
 }
 
-aside .hover:hover {
-   cursor: pointer;
+.slider div {
+   cursor: default;
+   font-size: small;
+}
+
+aside button:active {
    background-color: grey;
-}
-
-aside {
-   display: flex;
-   flex-direction: column;
-   margin-top: 1rem;
-   gap: .5rem;
 }
 
 .container {
@@ -96,7 +109,6 @@ aside {
 /* slider */
 
 input[type=range] {
-   height: 27px;
    -webkit-appearance: none;
    margin: 10px 0;
    width: 100%;
