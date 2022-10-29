@@ -97,7 +97,11 @@ bgColorPicker.addEventListener("input", () => {
 clear.addEventListener("click", () => {
 	const columns = document.querySelectorAll(".column");
 	columns.forEach(column => {
-		column.style.backgroundColor = "black";
+      if (bgColorPicker.value === 0) {
+         column.style.backgroundColor = "black";
+      } else {
+         column.style.backgroundColor = bgColorPicker.value;
+      }
 	});
 });
 
