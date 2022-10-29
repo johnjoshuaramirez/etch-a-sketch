@@ -1,8 +1,10 @@
 const container = document.querySelector(".container");
-const slider = document.querySelector("input");
+const slider = document.querySelector("input[type=\"range\"]");
 const size = document.querySelector(".size");
 const buttons = document.querySelectorAll("button");
 const color = document.querySelector(".color");
+const colorPicker = document.querySelector("input[type=\"color\"]");
+const rainbow = document.querySelector(".rainbow");
 const eraser = document.querySelector(".eraser");
 const clear = document.querySelector(".clear");
 const toggleGrid = document.querySelector(".toggle-grid");
@@ -24,11 +26,14 @@ slider.addEventListener("input", () => {
 			column.className = "column";
 			row.appendChild(column);
 			column.addEventListener("mouseover", () => {
+
 				if (eraser.classList.contains("active")) {
 					column.style.backgroundColor = "black";
-				} else {
-					column.style.backgroundColor = randomColor();
-				}
+				} else if (color.classList.contains("active")) {
+					column.style.backgroundColor = colorPicker.value;
+				} else if (rainbow.classList.contains("active")) {
+               column.style.backgroundColor = randomColor();
+            }
 			});
 		}
 	}
@@ -50,6 +55,8 @@ buttons.forEach(button => {
 		button.classList.add("active");
 	});
 });
+
+color.addEventListener("click")
 
 clear.addEventListener("click", () => {
 	const columns = document.querySelectorAll(".column");
