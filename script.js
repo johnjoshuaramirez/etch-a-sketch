@@ -35,8 +35,10 @@ function randomColor() {
 
 // color
 // rainbow
+// background color
 // eraser
 // slider
+// clear
 // size
 // toggle grid lines
-// clear
+
