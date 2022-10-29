@@ -1,9 +1,11 @@
 const container = document.querySelector(".container");
-const slider = document.querySelector("input[type=\"range\"]");
+const slider = document.querySelector('input[type="range"]');
 const size = document.querySelector(".size");
 const buttons = document.querySelectorAll("button");
 const color = document.querySelector(".color");
-const colorPicker = document.querySelector("input[type=\"color\"]");
+const colorPicker = document.querySelector('.color input[type="color"]');
+const bgColor = document.querySelector(".bg-color");
+const bgColorPicker = document.querySelector('.bg-color input[type="color"]');
 const rainbow = document.querySelector(".rainbow");
 const eraser = document.querySelector(".eraser");
 const clear = document.querySelector(".clear");
@@ -11,14 +13,13 @@ const toggleGrid = document.querySelector(".toggle-grid");
 
 const choices = [color, rainbow, eraser];
 choices.forEach(choice => {
-   choice.addEventListener("click", () => {
+	choice.addEventListener("click", () => {
 		choices.forEach(choice => {
 			choice.classList.remove("current");
 		});
 		choice.classList.add("current");
 	});
-})
-
+});
 
 slider.addEventListener("input", () => {
 	while (container.firstChild) {
@@ -37,14 +38,13 @@ slider.addEventListener("input", () => {
 			column.className = "column";
 			row.appendChild(column);
 			column.addEventListener("mouseover", () => {
-
 				if (eraser.classList.contains("current")) {
 					column.style.backgroundColor = "black";
 				} else if (color.classList.contains("current")) {
 					column.style.backgroundColor = colorPicker.value;
 				} else if (rainbow.classList.contains("current")) {
-               column.style.backgroundColor = randomColor();
-            }
+					column.style.backgroundColor = randomColor();
+				}
 			});
 		}
 	}
@@ -58,6 +58,7 @@ function randomColor() {
 	return rgb;
 }
 
+
 buttons.forEach(button => {
 	button.addEventListener("click", () => {
 		buttons.forEach(button => {
@@ -67,9 +68,9 @@ buttons.forEach(button => {
 	});
 });
 
-color.addEventListener("click", () => {
-
-})
+bgColorPicker.addEventListener("input", () => {
+	container.style.backgroundColor = bgColorPicker.value;
+});
 
 clear.addEventListener("click", () => {
 	const columns = document.querySelectorAll(".column");
@@ -79,7 +80,7 @@ clear.addEventListener("click", () => {
 });
 
 toggleGrid.addEventListener("click", () => {
-   const columns = document.querySelectorAll(".column");
+	const columns = document.querySelectorAll(".column");
 	columns.forEach(column => {
 		column.classList.toggle("hide-column-border");
 	});

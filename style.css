@@ -33,11 +33,12 @@ aside {
    align-items: center;
 }
 
-aside .color {
+aside .color, aside .bg-color {
    position: relative;
 }
 
-aside input[type="color"] {
+aside .color input[type="color"],
+aside .bg-color input[type="color"] {
    position: absolute;
    width: 100%;
    height: 100%;
