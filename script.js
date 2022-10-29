@@ -102,6 +102,14 @@ clear.addEventListener("click", () => {
 });
 
 toggleGrid.addEventListener("click", () => {
+   toggleGrid.classList.toggle("hide");
+
+   if (toggleGrid.classList.contains("hide")) {
+      toggleGrid.innerText = "Show Grid";
+   } else {
+      toggleGrid.innerText = "Hide Grid";
+   }
+   
 	const columns = document.querySelectorAll(".column");
 	columns.forEach(column => {
 		column.classList.toggle("hide-column-border");
