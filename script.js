@@ -106,16 +106,20 @@ clear.addEventListener("click", () => {
 });
 
 toggleGrid.addEventListener("click", () => {
-   toggleGrid.classList.toggle("hide");
+	toggleGrid.toggleAttribute("hide");
 
-   if (toggleGrid.classList.contains("hide")) {
-      toggleGrid.innerText = "Show Grid";
-   } else {
-      toggleGrid.innerText = "Hide Grid";
-   }
-   
+	if (toggleGrid.hasAttribute("hide")) {
+		toggleGrid.innerText = "Show Grid";
+	} else {
+		toggleGrid.innerText = "Hide Grid";
+	}
+
 	const columns = document.querySelectorAll(".column");
 	columns.forEach(column => {
 		column.classList.toggle("hide-column-border");
 	});
 });
+
+// Bugs
+// clear erases including background color
+// background not adding once clear is clicked
