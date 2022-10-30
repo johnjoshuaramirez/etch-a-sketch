@@ -33,7 +33,7 @@ window.addEventListener("DOMContentLoaded", () => {
 			row.appendChild(column);
 			column.addEventListener("mouseover", () => {
 				if (eraser.classList.contains("current")) {
-					column.style.backgroundColor = "black";
+					column.style.backgroundColor = bgColorPicker.value;
 				} else if (color.classList.contains("current")) {
 					column.style.backgroundColor = colorPicker.value;
 				} else if (rainbow.classList.contains("current")) {
@@ -62,7 +62,7 @@ slider.addEventListener("input", () => {
 			row.appendChild(column);
 			column.addEventListener("mouseover", () => {
 				if (eraser.classList.contains("current")) {
-					column.style.backgroundColor = "black";
+					column.style.backgroundColor = bgColorPicker.value;
 				} else if (color.classList.contains("current")) {
 					column.style.backgroundColor = colorPicker.value;
 				} else if (rainbow.classList.contains("current")) {
@@ -92,17 +92,19 @@ buttons.forEach(button => {
 
 bgColorPicker.addEventListener("input", () => {
 	container.style.backgroundColor = bgColorPicker.value;
+   const columns = document.querySelectorAll(".column");
+	columns.forEach(column => {
+      column.style.backgroundColor = bgColorPicker.value;
+	});
 });
 
 clear.addEventListener("click", () => {
 	const columns = document.querySelectorAll(".column");
 	columns.forEach(column => {
-      if (bgColorPicker.value === 0) {
-         column.style.backgroundColor = "black";
-      } else {
-         column.style.backgroundColor = bgColorPicker.value;
-      }
+      column.style.backgroundColor = "black";
+      column.removeAttribute("colored");
 	});
+   
 });
 
 toggleGrid.addEventListener("click", () => {
