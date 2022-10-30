@@ -35,7 +35,7 @@ window.addEventListener("DOMContentLoaded", () => {
 				column.classList.add("selected");
 				if (eraser.classList.contains("current")) {
 					column.style.backgroundColor = bgColorPicker.value;
-               column.classList.remove("selected");
+					column.classList.remove("selected");
 				} else if (color.classList.contains("current")) {
 					column.style.backgroundColor = colorPicker.value;
 				} else if (rainbow.classList.contains("current")) {
@@ -63,10 +63,10 @@ slider.addEventListener("input", () => {
 			column.className = "column";
 			row.appendChild(column);
 			column.addEventListener("mouseover", () => {
-            column.classList.add("selected");
+				column.classList.add("selected");
 				if (eraser.classList.contains("current")) {
 					column.style.backgroundColor = bgColorPicker.value;
-               column.classList.remove("selected");
+					column.classList.remove("selected");
 				} else if (color.classList.contains("current")) {
 					column.style.backgroundColor = colorPicker.value;
 				} else if (rainbow.classList.contains("current")) {
@@ -75,6 +75,14 @@ slider.addEventListener("input", () => {
 			});
 		}
 	}
+
+   toggleGrid.removeAttribute("hide");
+	toggleGrid.innerText = "Hide Grid";
+
+	const columns = document.querySelectorAll(".column");
+	columns.forEach(column => {
+		column.classList.remove("hidden-grid");
+	});
 });
 
 function randomColor() {
