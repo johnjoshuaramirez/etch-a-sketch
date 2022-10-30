@@ -63,8 +63,10 @@ slider.addEventListener("input", () => {
 			column.className = "column";
 			row.appendChild(column);
 			column.addEventListener("mouseover", () => {
+            column.classList.add("selected");
 				if (eraser.classList.contains("current")) {
 					column.style.backgroundColor = bgColorPicker.value;
+               column.classList.remove("selected");
 				} else if (color.classList.contains("current")) {
 					column.style.backgroundColor = colorPicker.value;
 				} else if (rainbow.classList.contains("current")) {
