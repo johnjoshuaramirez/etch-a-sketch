@@ -32,8 +32,10 @@ window.addEventListener("DOMContentLoaded", () => {
 			column.className = "column";
 			row.appendChild(column);
 			column.addEventListener("mouseover", () => {
+				column.classList.add("selected");
 				if (eraser.classList.contains("current")) {
 					column.style.backgroundColor = bgColorPicker.value;
+               column.classList.remove("selected");
 				} else if (color.classList.contains("current")) {
 					column.style.backgroundColor = colorPicker.value;
 				} else if (rainbow.classList.contains("current")) {
@@ -92,19 +94,26 @@ buttons.forEach(button => {
 
 bgColorPicker.addEventListener("input", () => {
 	container.style.backgroundColor = bgColorPicker.value;
-   const columns = document.querySelectorAll(".column");
+	const columns = document.querySelectorAll(".column");
 	columns.forEach(column => {
-      column.style.backgroundColor = bgColorPicker.value;
+		if (column.classList.contains("selected") === false) {
+			column.style.backgroundColor = bgColorPicker.value;
+		}
+		// column.style.backgroundColor = bgColorPicker.value;
 	});
 });
 
 clear.addEventListener("click", () => {
 	const columns = document.querySelectorAll(".column");
 	columns.forEach(column => {
-      column.style.backgroundColor = "black";
-      column.removeAttribute("colored");
+		if (column.classList.contains("selected")) {
+			column.removeAttribute("style");
+			column.classList.remove("selected");
+		}
 	});
-   
+	// columns.forEach(column => {
+	// 	column.style.backgroundColor = "black";
+	// });
 });
 
 toggleGrid.addEventListener("click", () => {
@@ -125,3 +134,6 @@ toggleGrid.addEventListener("click", () => {
 // Bugs
 // clear erases including background color
 // background not adding once clear is clicked
+
+// only clear column that is selected
+// only change background that is not selected
