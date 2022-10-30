@@ -99,7 +99,6 @@ bgColorPicker.addEventListener("input", () => {
 		if (column.classList.contains("selected") === false) {
 			column.style.backgroundColor = bgColorPicker.value;
 		}
-		// column.style.backgroundColor = bgColorPicker.value;
 	});
 });
 
@@ -111,9 +110,6 @@ clear.addEventListener("click", () => {
 			column.classList.remove("selected");
 		}
 	});
-	// columns.forEach(column => {
-	// 	column.style.backgroundColor = "black";
-	// });
 });
 
 toggleGrid.addEventListener("click", () => {
