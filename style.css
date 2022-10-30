@@ -115,7 +115,7 @@ aside button:active {
    border-bottom: 1px solid var(--color-white);
 }
 
-.column.hide-column-border {
+.column.hidden-grid {
    border-width: 0;
 }
 

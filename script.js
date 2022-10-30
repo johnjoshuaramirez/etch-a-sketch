@@ -125,7 +125,7 @@ toggleGrid.addEventListener("click", () => {
 
 	const columns = document.querySelectorAll(".column");
 	columns.forEach(column => {
-		column.classList.toggle("hide-column-border");
+		column.classList.toggle("hidden-grid");
 	});
 });
 
